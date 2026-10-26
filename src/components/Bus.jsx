@@ -35,7 +35,7 @@ function BusIllustration() {
   )
 }
 
-function Route({ title, stops }) {
+function Route({ title, stops, note }) {
   return (
     <div className="route">
       <h3 className="route__title">{title}</h3>
@@ -48,6 +48,7 @@ function Route({ title, stops }) {
           </li>
         ))}
       </ol>
+      {note && <p className="route__note">{note}</p>}
     </div>
   )
 }
@@ -60,13 +61,13 @@ export default function Bus() {
       <div className="bus">
         <BusIllustration />
         <p className="bus__lead">
-          Dla Gości, którzy zechcą skorzystać, przygotowaliśmy autokar. Wyjedzie z <strong>Osieka Jasielskiego
-          o godzinie 12:00</strong>, zawiezie Was do Kościoła, a po mszy na salę weselną. Po zakończeniu zabawy
-          odwiezie wszystkich z powrotem do Osieka Jasielskiego przez Jasło.
+          Dla Gości z okolic Osieka Jasielskiego i Jasła przygotowaliśmy autokar. Wyjedzie z{' '}
+          <strong>Osieka Jasielskiego o godzinie 12:00</strong>, zawiezie Was do Kościoła, a po mszy na salę
+          weselną. Po zakończeniu zabawy odwiezie wszystkich z powrotem przez Jasło do Osieka Jasielskiego.
         </p>
         <div className="routes">
           <Route title="Przyjazd" stops={bus.outbound} />
-          <Route title="Powrót" stops={bus.return} />
+          <Route title="Powrót" stops={bus.return} note={bus.returnNote} />
         </div>
         <div className="bus__ask">
           <FolkFlower size={40} petals={6} outer="var(--sky)" inner="var(--butter)" center="var(--rose)" />

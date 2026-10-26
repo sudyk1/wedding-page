@@ -542,3 +542,11 @@ img.picture {
 .bus__ask p {
   margin: 0;
 }
+
+.route__note {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1.5px dashed var(--lavender);
+  font-size: 0.92rem;
+  font-style: italic;
+}

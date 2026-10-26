@@ -49,6 +49,9 @@ export const bus = {
     { place: 'Jasło', note: 'przystanek' },
     { place: 'Osiek Jasielski', note: 'powrót' },
   ],
+  returnNote:
+    'W drodze powrotnej kierowca podjedzie do miejscowości w okolicy Jasła i Osieka Jasielskiego, ' +
+    'w których Goście będą chcieli wysiąść.',
 }
 
 export const contacts = [

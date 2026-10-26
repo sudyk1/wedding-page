@@ -36,7 +36,7 @@ export default function Rsvp() {
       </div>
       <p className="rsvp__note">
         Wystarczy jeden e-mail, telefon lub SMS do Panny Młodej albo Pana Młodego.
-        Nie zapomnijcie napisać, czy jedziecie z nami <a href="#autokar">autokarem</a>.
+        Dajcie też znać, czy chcecie skorzystać z <a href="#autokar">autokaru</a>.
       </p>
     </section>
   )
