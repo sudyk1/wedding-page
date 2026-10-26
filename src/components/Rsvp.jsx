@@ -5,7 +5,7 @@ const mailto = (email) => {
   const subject = `Potwierdzenie obecności – ślub ${couple.bride} & ${couple.groom}, ${wedding.date}`
   const body =
     'Dzień dobry!\n\nPotwierdzam / nie potwierdzam (niepotrzebne skreślić) obecność na ślubie i weselu.\n' +
-    'Liczba osób: \nImiona i nazwiska: \nUwagi (np. dieta): \n\nPozdrawiam'
+    'Liczba osób: \nImiona i nazwiska: \nAutokar (tak/nie, ile osób): \nUwagi (np. dieta): \n\nPozdrawiam'
   return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 }
 
@@ -34,7 +34,10 @@ export default function Rsvp() {
           </div>
         ))}
       </div>
-      <p className="rsvp__note">Wystarczy jeden e-mail, telefon lub SMS do Panny Młodej albo Pana Młodego.</p>
+      <p className="rsvp__note">
+        Wystarczy jeden e-mail, telefon lub SMS do Panny Młodej albo Pana Młodego.
+        Nie zapomnijcie napisać, czy jedziecie z nami <a href="#autokar">autokarem</a>.
+      </p>
     </section>
   )
 }

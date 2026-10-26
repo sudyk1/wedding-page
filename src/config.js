@@ -37,6 +37,20 @@ export const venues = [
   },
 ]
 
+// Autokar dla gości – przystanki w kolejności przejazdu.
+export const bus = {
+  outbound: [
+    { place: 'Osiek Jasielski', time: '12:00', note: 'wyjazd' },
+    { place: 'Kościół w Pysznicy', time: 'przed 15:00', note: 'ceremonia ślubna' },
+    { place: 'Dwór Olimp, Stalowa Wola', time: 'po mszy', note: 'przyjęcie weselne' },
+  ],
+  return: [
+    { place: 'Dwór Olimp, Stalowa Wola', time: 'po zakończeniu zabawy', note: 'wyjazd' },
+    { place: 'Jasło', note: 'przystanek' },
+    { place: 'Osiek Jasielski', note: 'powrót' },
+  ],
+}
+
 export const contacts = [
   {
     role: 'Panna Młoda',

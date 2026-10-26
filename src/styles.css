@@ -430,3 +430,115 @@ img.picture {
   font-style: italic;
   color: var(--ink-soft);
 }
+
+/* ---------- Autokar ---------- */
+
+.bus {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 28px 20px;
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border-top: 6px solid var(--sky-deep);
+}
+
+.bus__art {
+  width: min(320px, 100%);
+  margin: 0 auto 8px;
+}
+
+.bus__lead {
+  margin: 0 auto 24px;
+  max-width: 620px;
+}
+
+.routes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 20px;
+  text-align: left;
+}
+
+.route {
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: rgba(188, 216, 238, 0.25);
+}
+
+.route:nth-child(2) {
+  background: rgba(205, 189, 230, 0.25);
+}
+
+.route__title {
+  margin: 0 0 12px;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--rose-deep);
+}
+
+.route__stops {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.route__stop {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 16px 28px;
+}
+
+.route__stop:last-child {
+  padding-bottom: 0;
+}
+
+/* linia łącząca przystanki */
+.route__stop:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 16px;
+  bottom: 0;
+  border-left: 2px dashed var(--sage);
+}
+
+.route__dot {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--butter);
+  border: 3px solid var(--rose);
+}
+
+.route__place {
+  font-weight: 600;
+}
+
+.route__meta {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.bus__ask {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 2px dashed var(--rose);
+  text-align: left;
+}
+
+.bus__ask svg {
+  flex: none;
+}
+
+.bus__ask p {
+  margin: 0;
+}
