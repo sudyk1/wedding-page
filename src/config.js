@@ -2,16 +2,16 @@
 // Wartości w nawiasach kwadratowych to placeholdery – podmień je na właściwe.
 
 export const couple = {
-  bride: '[Imię Panny Młodej]',
-  groom: '[Imię Pana Młodego]',
+  bride: 'Ewa',
+  groom: 'Adam',
   // Ścieżka do zdjęcia, np. './photos/para.jpg' (plik w katalogu public/photos). null = ilustracja.
   photo: null,
 }
 
 export const wedding = {
-  date: '[DD.MM.RRRR]',
+  date: '10.07.2027',
   // Termin potwierdzenia obecności
-  rsvpDeadline: '[DD.MM.RRRR]',
+  rsvpDeadline: '10.05.2027',
 }
 
 export const venues = [

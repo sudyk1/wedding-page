@@ -2,7 +2,7 @@ import { contacts, couple, wedding } from '../config.js'
 import { FolkFlower } from './Ornaments.jsx'
 
 const mailto = (email) => {
-  const subject = `Potwierdzenie obecności – ślub ${couple.bride} i ${couple.groom}`
+  const subject = `Potwierdzenie obecności – ślub ${couple.bride} & ${couple.groom}, ${wedding.date}`
   const body =
     'Dzień dobry!\n\nPotwierdzam / nie potwierdzam (niepotrzebne skreślić) obecność na ślubie i weselu.\n' +
     'Liczba osób: \nImiona i nazwiska: \nUwagi (np. dieta): \n\nPozdrawiam'
