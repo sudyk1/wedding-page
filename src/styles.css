@@ -299,6 +299,11 @@ img.picture {
   color: var(--ink-soft);
 }
 
+/* opis wypełnia wolne miejsce – mapy i przyciski w obu kartach są na tej samej wysokości */
+.venue__body {
+  flex: 1;
+}
+
 .venue__map {
   overflow: hidden;
   border-radius: 16px;
