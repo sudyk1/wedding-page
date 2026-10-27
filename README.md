@@ -11,6 +11,16 @@ npm install
 npm run dev
 ```
 
+## Wersje graficzne
+
+Ten sam kod i te same dane, dwa motywy:
+
+- `/` – motyw ludowy (pastelowe kwiaty, wycinanki) – [`index.html`](index.html),
+- `/koronka/` – biała koronka, lawenda, ciepłe barwy – [`koronka/index.html`](koronka/index.html).
+
+Motyw wybiera atrybut `<html data-theme="...">`. Kolory i wygląd motywu koronkowego są w
+[`src/theme-lace.css`](src/theme-lace.css), a jego ozdoby w [`src/components/LaceOrnaments.jsx`](src/components/LaceOrnaments.jsx).
+
 ## Personalizacja
 
 Wszystkie dane są w [`src/config.js`](src/config.js): imiona, data, termin RSVP, adresy, e-maile i telefony.

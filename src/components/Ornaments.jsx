@@ -1,3 +1,6 @@
+import { useTheme } from '../theme.js'
+import { FloatingLace, LaceBouquet, LaceDivider, LaceRosette } from './LaceOrnaments.jsx'
+
 // Dekoracje w stylu polskich wycinanek – pastelowe kwiaty, liście i bordiury.
 
 const range = (n) => Array.from({ length: n }, (_, i) => i)
@@ -70,7 +73,7 @@ export function Leaf({ size = 40, color = 'var(--sage)', rotate = 0, className =
 }
 
 // Bukiet: duży kwiat w środku, mniejsze po bokach, liście.
-export function Bouquet({ className = '' }) {
+function FolkBouquet({ className = '' }) {
   return (
     <div className={`bouquet ${className}`} aria-hidden="true">
       <Leaf size={26} rotate={-55} className="bouquet__leaf bouquet__leaf--l" />
@@ -83,7 +86,7 @@ export function Bouquet({ className = '' }) {
 }
 
 // Pozioma bordiura – powtarzający się wzór wycinankowy.
-export function FolkDivider() {
+function FolkDivider() {
   const colors = ['var(--rose)', 'var(--mint)', 'var(--lavender)', 'var(--butter)', 'var(--sky)']
   return (
     <div className="folk-divider" aria-hidden="true">
@@ -116,7 +119,7 @@ export function FolkDivider() {
 }
 
 // Rozrzucone kwiaty w tle sekcji.
-export function FloatingFlowers() {
+function FolkFloating() {
   return (
     <div className="floating-flowers" aria-hidden="true">
       <FolkFlower size={120} className="ff ff--1" />
@@ -125,4 +128,22 @@ export function FloatingFlowers() {
       <FolkFlower size={100} petals={7} outer="var(--sky)" inner="var(--rose)" center="var(--butter)" className="ff ff--4" />
     </div>
   )
+}
+
+// Ozdoby zależne od motywu – komponenty sekcji nie muszą wiedzieć, który motyw jest aktywny.
+export function Bouquet(props) {
+  return useTheme() === 'lace' ? <LaceBouquet {...props} /> : <FolkBouquet {...props} />
+}
+
+export function Divider() {
+  return useTheme() === 'lace' ? <LaceDivider /> : <FolkDivider />
+}
+
+export function FloatingFlowers() {
+  return useTheme() === 'lace' ? <FloatingLace /> : <FolkFloating />
+}
+
+// Mały znaczek przy nagłówkach kart: ludowy kwiat albo koronkowa rozeta.
+export function Emblem(props) {
+  return useTheme() === 'lace' ? <LaceRosette size={props.size} /> : <FolkFlower {...props} />
 }

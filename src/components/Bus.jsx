@@ -1,5 +1,5 @@
 import { bus } from '../config.js'
-import { FolkFlower } from './Ornaments.jsx'
+import { Emblem } from './Ornaments.jsx'
 
 function BusIllustration() {
   return (
@@ -70,7 +70,7 @@ export default function Bus() {
           <Route title="Powrót" stops={bus.return} note={bus.returnNote} />
         </div>
         <div className="bus__ask">
-          <FolkFlower size={40} petals={6} outer="var(--sky)" inner="var(--butter)" center="var(--rose)" />
+          <Emblem size={40} petals={6} outer="var(--sky)" inner="var(--butter)" center="var(--rose)" />
           <p>
             Prosimy, dajcie nam znać przy potwierdzeniu obecności, <strong>czy chcecie skorzystać z autokaru</strong> i
             ile osób z Wami pojedzie – dzięki temu zarezerwujemy odpowiednią liczbę miejsc.

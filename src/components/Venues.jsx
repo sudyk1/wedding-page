@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react'
 import { venues } from '../config.js'
 import { directionsUrl, isMobileDevice, mapEmbedUrl } from '../maps.js'
 import { Picture } from './Illustrations.jsx'
-import { FolkFlower } from './Ornaments.jsx'
+import { Emblem } from './Ornaments.jsx'
 
 function VenueCard({ venue, mobile }) {
   const query = `${venue.name}, ${venue.address}`
   return (
     <article className="venue" id={venue.id}>
       <div className="venue__badge">
-        <FolkFlower size={34} petals={6} />
+        <Emblem size={34} petals={6} />
         <span>{venue.label}</span>
       </div>
       <Picture photo={venue.photo} kind={venue.illustration} alt={venue.name} className="venue__picture" />

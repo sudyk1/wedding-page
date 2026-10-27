@@ -1,5 +1,5 @@
 import { contacts, couple, wedding } from '../config.js'
-import { FolkFlower } from './Ornaments.jsx'
+import { Emblem } from './Ornaments.jsx'
 
 const mailto = (email) => {
   const subject = `Potwierdzenie obecności – ślub ${couple.bride} & ${couple.groom}, ${wedding.date}`
@@ -22,7 +22,7 @@ export default function Rsvp() {
       <div className="contacts">
         {contacts.map((c) => (
           <div className="contact" key={c.role}>
-            <FolkFlower size={48} petals={8} outer="var(--lavender)" inner="var(--butter)" center="var(--rose)" />
+            <Emblem size={48} petals={8} outer="var(--lavender)" inner="var(--butter)" center="var(--rose)" />
             <p className="contact__role">{c.role}</p>
             <p className="contact__name">{c.name}</p>
             <a className="contact__link" href={mailto(c.email)}>
