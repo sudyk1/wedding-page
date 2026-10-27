@@ -115,6 +115,15 @@ export function LaceDivider() {
             <circle key={i} cx={40 + i * 20.8} cy="33" r="2" />
           ))}
         </g>
+        {/* zaokrąglone zakończenia pasa koronki: oczko z lawendowym środkiem i kropla */}
+        {[27, 573].map((x) => (
+          <g key={x} transform={`translate(${x} 26)`}>
+            <circle r="9" fill="var(--paper)" stroke="var(--lace-line)" strokeWidth="0.9" />
+            <circle r="3.6" fill="var(--lavender)" />
+            <circle cx={x < 300 ? -14 : 14} r="2.6" fill="var(--lavender-deep)" opacity="0.8" />
+            <circle cx={x < 300 ? -21 : 21} r="1.6" fill="var(--lavender)" opacity="0.8" />
+          </g>
+        ))}
         <g transform="translate(250 30) rotate(-90)">
           <Sprig length={64} />
         </g>

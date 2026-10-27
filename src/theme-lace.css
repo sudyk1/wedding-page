@@ -194,7 +194,8 @@
   left: -40px;
 }
 
+/* nagłówek ma overflow: hidden – rozeta musi zmieścić się w całości nad jego dolną krawędzią */
 [data-theme='lace'] .ff--4 {
-  bottom: -30px;
+  bottom: 6%;
   right: 6%;
 }
