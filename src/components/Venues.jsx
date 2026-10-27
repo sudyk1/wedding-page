@@ -22,7 +22,7 @@ function VenueCard({ venue, mobile }) {
       <div className="venue__map">
         <iframe
           title={`Mapa – ${venue.name}`}
-          src={mapEmbedUrl(query)}
+          src={mapEmbedUrl(venue.coords ?? query)}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           allowFullScreen

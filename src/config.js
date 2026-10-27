@@ -21,6 +21,8 @@ export const venues = [
     time: 'Godzina 15:00',
     name: 'Parafia Podwyższenia Krzyża Świętego i św. Jana Chrzciciela',
     address: 'Wolności 297, 37-403 Pysznica',
+    // Współrzędne dla mapy – przy nich Google nie pokazuje karty miejsca zasłaniającej mapę.
+    coords: '50.5746955,22.1225520',
     description: 'Uroczysta msza święta, podczas której powiemy sobie sakramentalne „tak”.',
     illustration: 'church',
     photo: null,
@@ -31,6 +33,7 @@ export const venues = [
     time: 'Po mszy ślubnej',
     name: 'Dwór Olimp',
     address: 'Kusocińskiego 1G, 37-450 Stalowa Wola',
+    coords: '50.5861877,22.0437324',
     description: 'Po ceremonii zapraszamy na przyjęcie weselne w sali Olimp.',
     illustration: 'hall',
     photo: null,

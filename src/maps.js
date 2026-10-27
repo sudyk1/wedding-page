@@ -2,8 +2,9 @@ const isMobileDevice = () =>
   typeof navigator !== 'undefined' &&
   /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)
 
+// Przecinek zostaje niezakodowany – współrzędne "lat,lng" Google rozpoznaje wtedy jako punkt z pinezką.
 export const mapEmbedUrl = (query) =>
-  `https://www.google.com/maps?q=${encodeURIComponent(query)}&hl=pl&z=15&output=embed`
+  `https://www.google.com/maps?q=${encodeURIComponent(query).replaceAll('%2C', ',')}&hl=pl&z=15&output=embed`
 
 // Brak parametru `origin` => Google Maps startuje z bieżącej lokalizacji użytkownika.
 // Na telefonie od razu uruchamiamy nawigację (aplikacja Google Maps),
