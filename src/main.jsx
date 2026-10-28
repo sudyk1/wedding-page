@@ -4,6 +4,7 @@ import App from './App.jsx'
 import { ThemeContext, currentTheme } from './theme.js'
 import './styles.css'
 import './theme-lace.css'
+import './theme-classic.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

@@ -13,13 +13,15 @@ npm run dev
 
 ## Wersje graficzne
 
-Ten sam kod i te same dane, dwa motywy:
+Ten sam kod i te same dane, trzy motywy:
 
 - `/` – motyw ludowy (pastelowe kwiaty, wycinanki) – [`index.html`](index.html),
-- `/koronka/` – biała koronka, lawenda, ciepłe barwy – [`koronka/index.html`](koronka/index.html).
+- `/koronka/` – biała koronka, lawenda, ciepłe barwy – [`koronka/index.html`](koronka/index.html),
+- `/klasyczna/` – klasyczna biel, złoto i koronka, w nagłówku Panna Młoda – [`klasyczna/index.html`](klasyczna/index.html).
 
-Motyw wybiera atrybut `<html data-theme="...">`. Kolory i wygląd motywu koronkowego są w
-[`src/theme-lace.css`](src/theme-lace.css), a jego ozdoby w [`src/components/LaceOrnaments.jsx`](src/components/LaceOrnaments.jsx).
+Motyw wybiera atrybut `<html data-theme="...">`. Kolory i wygląd motywów są w
+[`src/theme-lace.css`](src/theme-lace.css) i [`src/theme-classic.css`](src/theme-classic.css), a ozdoby w
+[`src/components/LaceOrnaments.jsx`](src/components/LaceOrnaments.jsx) i [`src/components/ClassicOrnaments.jsx`](src/components/ClassicOrnaments.jsx).
 
 ## Personalizacja
 

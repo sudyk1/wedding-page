@@ -1,5 +1,6 @@
 import { useTheme } from '../theme.js'
 import { FloatingLace, LaceBouquet, LaceDivider, LaceRosette } from './LaceOrnaments.jsx'
+import { FloatingClassic, GoldDivider, GoldRings, RoseBouquet } from './ClassicOrnaments.jsx'
 
 // Dekoracje w stylu polskich wycinanek – pastelowe kwiaty, liście i bordiury.
 
@@ -132,18 +133,30 @@ function FolkFloating() {
 
 // Ozdoby zależne od motywu – komponenty sekcji nie muszą wiedzieć, który motyw jest aktywny.
 export function Bouquet(props) {
-  return useTheme() === 'lace' ? <LaceBouquet {...props} /> : <FolkBouquet {...props} />
+  const theme = useTheme()
+  if (theme === 'lace') return <LaceBouquet {...props} />
+  if (theme === 'classic') return <RoseBouquet {...props} />
+  return <FolkBouquet {...props} />
 }
 
 export function Divider() {
-  return useTheme() === 'lace' ? <LaceDivider /> : <FolkDivider />
+  const theme = useTheme()
+  if (theme === 'lace') return <LaceDivider />
+  if (theme === 'classic') return <GoldDivider />
+  return <FolkDivider />
 }
 
 export function FloatingFlowers() {
-  return useTheme() === 'lace' ? <FloatingLace /> : <FolkFloating />
+  const theme = useTheme()
+  if (theme === 'lace') return <FloatingLace />
+  if (theme === 'classic') return <FloatingClassic />
+  return <FolkFloating />
 }
 
-// Mały znaczek przy nagłówkach kart: ludowy kwiat albo koronkowa rozeta.
+// Mały znaczek przy nagłówkach kart: ludowy kwiat, koronkowa rozeta albo złote obrączki.
 export function Emblem(props) {
-  return useTheme() === 'lace' ? <LaceRosette size={props.size} /> : <FolkFlower {...props} />
+  const theme = useTheme()
+  if (theme === 'lace') return <LaceRosette size={props.size} />
+  if (theme === 'classic') return <GoldRings size={props.size} />
+  return <FolkFlower {...props} />
 }

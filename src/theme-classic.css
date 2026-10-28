@@ -1,0 +1,278 @@
+/* Motyw „klasyczna biel” – biel, koronka i złoto, w centrum Panna Młoda.
+   Nadpisuje wyłącznie tokeny i wygląd; układ strony pochodzi ze styles.css. */
+
+:root[data-theme='classic'] {
+  --gold: #c5a253;
+  --gold-deep: #9c7a33;
+  --gold-light: #ecd99a;
+
+  --cream: #fbf8f2;
+  --paper: #ffffff;
+  --rose: #eedcc6;
+  --rose-deep: #a8843c;
+  --mint: #f6f1e7;
+  --sage: #b8ad88;
+  --lavender: #e6dccb;
+  --lavender-deep: #a8843c;
+  --butter: #e3c77e;
+  --butter-deep: #b8913f;
+  --sky: #f3eee4;
+  --sky-deep: #cbbd9b;
+  --ink: #3f3a34;
+  --ink-soft: #7d7468;
+
+  --lace-line: #dccfb0;
+  --lace-hole: #f7f2e9;
+
+  --font-script: 'Great Vibes', cursive;
+  --shadow: 0 16px 40px rgba(110, 90, 50, 0.1);
+}
+
+/* Tło: ciepła biel z subtelnym, złotawym wzorem koronki */
+[data-theme='classic'] body {
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(236, 217, 154, 0.25), transparent 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23e9dfc6' stroke-width='1'%3E%3Ccircle cx='40' cy='40' r='12'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3Cpath d='M40 22 V28 M40 52 V58 M22 40 H28 M52 40 H58'/%3E%3Ccircle cx='0' cy='0' r='12'/%3E%3Ccircle cx='80' cy='0' r='12'/%3E%3Ccircle cx='0' cy='80' r='12'/%3E%3Ccircle cx='80' cy='80' r='12'/%3E%3C/g%3E%3Cg fill='%23e9dfc6'%3E%3Ccircle cx='20' cy='20' r='1.4'/%3E%3Ccircle cx='60' cy='20' r='1.4'/%3E%3Ccircle cx='20' cy='60' r='1.4'/%3E%3Ccircle cx='60' cy='60' r='1.4'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: auto, 80px 80px;
+  background-attachment: fixed, scroll;
+}
+
+/* ---------- Karty: biel, cienka złota ramka, koronkowy ząbkowany dół ---------- */
+
+[data-theme='classic'] :is(.hero__card, .venue, .bus, .contact) {
+  --sc: 8px;
+  position: relative;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  box-shadow: none;
+  background:
+    /* oczka koronki nad ząbkami u dołu */
+    radial-gradient(circle, var(--lace-line) 1.5px, transparent 2px) center calc(100% - var(--sc) - 6px) /
+      calc(var(--sc) * 2) 8px repeat-x,
+    /* ząbki tylko u dołu – jak koronkowe wykończenie sukni */
+    radial-gradient(circle at 50% 0, var(--paper) calc(var(--sc) - 0.5px), transparent var(--sc)) bottom center /
+      calc(var(--sc) * 2) var(--sc) repeat-x,
+    linear-gradient(var(--paper), var(--paper)) top / 100% calc(100% - var(--sc)) no-repeat;
+  filter: drop-shadow(0 12px 26px rgba(110, 90, 50, 0.1));
+}
+
+/* złota ramka wewnątrz kart */
+[data-theme='classic'] :is(.venue, .bus, .contact)::after {
+  content: '';
+  position: absolute;
+  inset: 8px 8px calc(8px + var(--sc) + 12px);
+  border: 1px solid var(--gold-light);
+  pointer-events: none;
+}
+
+[data-theme='classic'] .hero__card {
+  padding: 44px 28px 56px;
+}
+
+/* podwójna złota ramka zaproszenia */
+[data-theme='classic'] .hero__card::before {
+  inset: 12px 12px calc(12px + var(--sc) + 12px);
+  border: 1px solid var(--gold);
+  border-radius: 0;
+  box-shadow: inset 0 0 0 4px var(--paper), inset 0 0 0 5px var(--gold-light);
+}
+
+[data-theme='classic'] .venue {
+  padding: 44px 24px 40px;
+}
+
+[data-theme='classic'] .contact {
+  padding: 30px 20px 40px;
+}
+
+[data-theme='classic'] .bus {
+  padding: 36px 24px 44px;
+}
+
+/* ---------- Typografia: złoty skrypt i wersaliki z rozstrzeleniem ---------- */
+
+[data-theme='classic'] :is(.hero__title, .footer__names) {
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold) 40%, #d9bd72 60%, var(--gold-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* gradient maluje tylko pole elementu – zapas, żeby akcent w „Ś” i zawijasy nie znikały */
+  padding: 0.2em 0.15em 0.1em;
+}
+
+[data-theme='classic'] .hero__title {
+  margin-top: 0.1em;
+}
+
+[data-theme='classic'] .hero__lead {
+  font-style: normal;
+  font-size: 0.95rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+[data-theme='classic'] .hero__names {
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+[data-theme='classic'] :is(.hero__amp, .footer__amp) {
+  font-family: var(--font-script);
+  color: var(--gold);
+  -webkit-text-fill-color: var(--gold);
+}
+
+[data-theme='classic'] .footer__amp {
+  margin: 0 0.2em;
+}
+
+[data-theme='classic'] .hero__date {
+  border-color: var(--gold);
+  letter-spacing: 0.24em;
+}
+
+[data-theme='classic'] .section__title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.6rem, 6vw, 2.3rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+@media (max-width: 480px) {
+  [data-theme='classic'] .section__title {
+    letter-spacing: 0.12em;
+  }
+}
+
+[data-theme='classic'] .section__subtitle {
+  color: var(--ink-soft);
+}
+
+[data-theme='classic'] :is(.venue__time, .route__title) {
+  color: var(--gold-deep);
+  letter-spacing: 0.06em;
+}
+
+[data-theme='classic'] .venue__name,
+[data-theme='classic'] .contact__name {
+  font-weight: 500;
+}
+
+[data-theme='classic'] .contact__role {
+  font-style: normal;
+  font-size: 0.85rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+/* ---------- Przyciski i detale ---------- */
+
+[data-theme='classic'] .btn {
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold) 50%, var(--gold-deep));
+  letter-spacing: 0.06em;
+  box-shadow: 0 6px 16px rgba(156, 122, 51, 0.3);
+}
+
+[data-theme='classic'] :is(.btn:hover, .btn:focus-visible) {
+  box-shadow: 0 10px 22px rgba(156, 122, 51, 0.4);
+}
+
+[data-theme='classic'] .btn--ghost {
+  background: transparent;
+  color: var(--gold-deep);
+  border: 1px solid var(--gold);
+  box-shadow: none;
+}
+
+[data-theme='classic'] .btn:focus-visible {
+  outline-color: var(--gold);
+}
+
+[data-theme='classic'] .venue__badge {
+  border: 1px solid var(--gold-light);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+[data-theme='classic'] .venue__map {
+  border: 1px solid var(--gold-light);
+}
+
+[data-theme='classic'] .picture--placeholder {
+  outline: 1px solid var(--gold-light);
+  outline-offset: 4px;
+}
+
+[data-theme='classic'] .route {
+  background: var(--mint);
+}
+
+[data-theme='classic'] .route:nth-child(2) {
+  background: #fbf3e2;
+}
+
+[data-theme='classic'] .route__dot {
+  background: var(--paper);
+  border-color: var(--gold);
+}
+
+[data-theme='classic'] .route__stop:not(:last-child)::before {
+  border-left-color: var(--gold-light);
+}
+
+[data-theme='classic'] .route__note {
+  border-top-color: var(--gold-light);
+}
+
+[data-theme='classic'] .bus__ask {
+  border: 1px solid var(--gold-light);
+}
+
+[data-theme='classic'] .contact__link:is(:hover, :focus-visible) {
+  background: var(--mint);
+}
+
+[data-theme='classic'] .footer {
+  background: linear-gradient(180deg, transparent, rgba(236, 217, 154, 0.25));
+}
+
+/* ---------- Ozdoby ---------- */
+
+[data-theme='classic'] .floating-flowers .ff {
+  opacity: 0.8;
+}
+
+[data-theme='classic'] .ff--1 {
+  top: 4%;
+  left: -50px;
+}
+
+[data-theme='classic'] .ff--4 {
+  bottom: 6%;
+  right: 4%;
+}
+
+/* złote iskry migoczą w tle nagłówka */
+.sparkle {
+  animation: twinkle 3.6s ease-in-out infinite !important;
+}
+
+.sparkle--1 { top: 18%; left: 22%; }
+.sparkle--2 { top: 30%; right: 20%; animation-delay: -0.8s !important; }
+.sparkle--3 { top: 62%; left: 12%; animation-delay: -1.6s !important; }
+.sparkle--4 { top: 72%; right: 14%; animation-delay: -2.2s !important; }
+.sparkle--5 { top: 8%; right: 34%; animation-delay: -2.9s !important; }
+.sparkle--6 { bottom: 10%; left: 30%; animation-delay: -1.2s !important; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle { animation: none !important; }
+}

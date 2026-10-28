@@ -151,7 +151,147 @@ export function HallIllustration() {
   )
 }
 
+// Panna Młoda w klasycznej białej sukni z koronką i złotymi dodatkami – nagłówek motywu „klasyczna biel”.
+export function BrideIllustration() {
+  const skin = '#f3dccb'
+  const hair = '#7a5640'
+  const hem = Array.from({ length: 15 }, (_, i) => 76 + i * 12)
+  return (
+    // kadr przycięty do łuku – Panna Młoda wypełnia ilustrację
+    <svg viewBox="52 4 216 252" role="img" aria-label="Ilustracja Panny Młodej – miejsce na zdjęcie">
+      <defs>
+        <linearGradient id="bride-gold" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stopColor="var(--gold-deep)" />
+          <stop offset="0.5" stopColor="var(--gold-light)" />
+          <stop offset="1" stopColor="var(--gold)" />
+        </linearGradient>
+      </defs>
+
+      {/* złoty łuk w tle */}
+      <path d="M62 252 V112 A98 98 0 0 1 258 112 V252" fill="var(--mint)" opacity="0.6" />
+      <path d="M62 252 V112 A98 98 0 0 1 258 112 V252" fill="none" stroke="url(#bride-gold)" strokeWidth="2" />
+      <path d="M72 252 V114 A88 88 0 0 1 248 114 V252" fill="none" stroke="var(--gold)" strokeWidth="0.8" strokeDasharray="1 5" />
+      {[
+        [88, 70],
+        [236, 64],
+        [250, 150],
+        [74, 160],
+      ].map(([x, y]) => (
+        <path
+          key={x}
+          d={`M${x} ${y - 6} C ${x + 0.6} ${y - 1}, ${x + 1} ${y - 0.6}, ${x + 6} ${y} C ${x + 1} ${y + 0.6}, ${x + 0.6} ${y + 1}, ${x} ${y + 6} C ${x - 0.6} ${y + 1}, ${x - 1} ${y + 0.6}, ${x - 6} ${y} C ${x - 1} ${y - 0.6}, ${x - 0.6} ${y - 1}, ${x} ${y - 6} Z`}
+          fill="var(--gold)"
+        />
+      ))}
+
+      {/* welon */}
+      <path
+        d="M150 42 C 110 70, 84 160, 66 248 L 254 248 C 236 160, 210 70, 170 42 Z"
+        fill="var(--paper)"
+        opacity="0.75"
+        stroke="var(--lace-line)"
+        strokeWidth="1"
+      />
+      <path d="M146 52 C 112 84, 92 170, 78 244" fill="none" stroke="var(--lace-line)" strokeWidth="1.4" strokeDasharray="1 4" strokeLinecap="round" />
+      <path d="M174 52 C 208 84, 228 170, 242 244" fill="none" stroke="var(--lace-line)" strokeWidth="1.4" strokeDasharray="1 4" strokeLinecap="round" />
+
+      {/* spódnica sukni z koronkowym dołem */}
+      <path d="M128 132 C 110 172, 84 214, 72 246 H 248 C 236 214, 210 172, 192 132 Z" fill="var(--paper)" stroke="var(--lace-line)" strokeWidth="1.2" />
+      {[
+        'M146 138 C 136 180, 118 214, 108 244',
+        'M160 138 V 244',
+        'M174 138 C 184 180, 202 214, 212 244',
+      ].map((d) => (
+        <path key={d} d={d} fill="none" stroke="var(--lace-line)" strokeWidth="0.9" opacity="0.8" />
+      ))}
+      {[
+        [116, 222],
+        [140, 200],
+        [182, 204],
+        [204, 226],
+        [160, 222],
+        [128, 178],
+        [192, 176],
+      ].map(([x, y]) => (
+        <g key={`${x}-${y}`} fill="none" stroke="var(--lace-line)" strokeWidth="0.9">
+          <circle cx={x} cy={y} r="5" />
+          <circle cx={x} cy={y} r="1.6" fill="var(--lace-line)" />
+        </g>
+      ))}
+      <g fill="var(--paper)" stroke="var(--lace-line)" strokeWidth="1">
+        {hem.map((x) => (
+          <circle key={x} cx={x} cy="247" r="6" />
+        ))}
+      </g>
+      <rect x="70" y="238" width="180" height="9" fill="var(--paper)" />
+      <path d="M72 238 H 248" stroke="var(--gold)" strokeWidth="1" strokeDasharray="2 4" />
+
+      {/* gorset z dekoltem w serce */}
+      <path
+        d="M138 92 C 136 108, 134 122, 130 134 H 190 C 186 122, 184 108, 182 92 C 174 99, 166 101, 160 95 C 154 101, 146 99, 138 92 Z"
+        fill="var(--paper)"
+        stroke="var(--lace-line)"
+        strokeWidth="1.2"
+      />
+      <path d="M146 104 L 160 128 L 174 104" fill="none" stroke="var(--lace-line)" strokeWidth="0.9" />
+      <rect x="129" y="128" width="62" height="7" rx="3.5" fill="url(#bride-gold)" />
+      <circle cx="160" cy="131.5" r="4.5" fill="var(--paper)" stroke="var(--gold-deep)" strokeWidth="1.2" />
+
+      {/* szyja i ramiona */}
+      <rect x="154" y="76" width="12" height="20" fill={skin} />
+      <path d="M138 96 C 126 112, 128 138, 150 150" fill="none" stroke={skin} strokeWidth="8" strokeLinecap="round" />
+      <path d="M182 96 C 194 112, 192 138, 170 150" fill="none" stroke={skin} strokeWidth="8" strokeLinecap="round" />
+
+      {/* bukiet białych róż */}
+      <g transform="translate(160 152)">
+        <path d="M-4 6 L -10 34 M 4 6 L 10 34" stroke="url(#bride-gold)" strokeWidth="2.4" strokeLinecap="round" />
+        {[
+          [-22, 2, -60],
+          [22, 2, 60],
+          [-16, -12, -30],
+          [16, -12, 30],
+        ].map(([x, y, a]) => (
+          <path key={a} d="M0 0 C 5 -6, 5 -16, 0 -22 C -5 -16, -5 -6, 0 0 Z" fill="var(--sage)" transform={`translate(${x} ${y}) rotate(${a})`} />
+        ))}
+        {[
+          [-11, 0, 9],
+          [11, 0, 9],
+          [0, -9, 10],
+          [0, 7, 8],
+        ].map(([x, y, r]) => (
+          <g key={`${x}${y}`}>
+            <circle cx={x} cy={y} r={r} fill="var(--paper)" stroke="var(--lace-line)" strokeWidth="1" />
+            <path d={`M${x - r * 0.35} ${y} a ${r * 0.35} ${r * 0.35} 0 1 1 ${r * 0.5} ${r * 0.2}`} fill="none" stroke="var(--gold)" strokeWidth="1" />
+          </g>
+        ))}
+        {[
+          [-20, -10],
+          [20, -10],
+          [-6, -20],
+          [8, -20],
+        ].map(([x, y]) => (
+          <circle key={`${x}${y}`} cx={x} cy={y} r="2" fill="var(--gold-light)" />
+        ))}
+      </g>
+
+      {/* głowa: upięte włosy, diadem, kolczyki */}
+      <circle cx="160" cy="36" r="10" fill={hair} />
+      <circle cx="160" cy="62" r="19" fill={skin} />
+      <path d="M140 64 C 136 38, 184 38, 180 64 C 176 50, 168 46, 160 48 C 152 46, 144 50, 140 64 Z" fill={hair} />
+      <path d="M146 44 L 150 36 L 155 42 L 160 32 L 165 42 L 170 36 L 174 44" fill="none" stroke="url(#bride-gold)" strokeWidth="2.2" strokeLinejoin="round" />
+      <circle cx="160" cy="32" r="2.2" fill="var(--paper)" stroke="var(--gold)" />
+      <circle cx="141" cy="70" r="2" fill="var(--gold)" />
+      <circle cx="179" cy="70" r="2" fill="var(--gold)" />
+      <path d="M150 62 q 4 3 8 0 M162 62 q 4 3 8 0" fill="none" stroke="var(--ink)" strokeWidth="1.4" strokeLinecap="round" />
+      <circle cx="149" cy="69" r="3" fill="var(--rose)" opacity="0.5" />
+      <circle cx="171" cy="69" r="3" fill="var(--rose)" opacity="0.5" />
+      <path d="M155 72 Q 160 76 165 72" fill="none" stroke="var(--rose-deep)" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  )
+}
+
 const illustrations = {
+  bride: BrideIllustration,
   couple: CoupleIllustration,
   church: ChurchIllustration,
   hall: HallIllustration,
